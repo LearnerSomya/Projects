@@ -29,7 +29,7 @@ html,body{
 }
 #nav a{
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     color: #fff;
 }
 #heading{
@@ -64,4 +64,21 @@ html,body{
     font-size: 1vw;
     text-transform: uppercase;
     text-align: right;
+}
+#herofooter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+#herofooter a{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+#herofooter .circle{
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: #888;
 }
