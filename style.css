@@ -126,3 +126,6 @@ html,body{
     z-index: 999;
     position: absolute;
 }
+#about{
+    width: 100%;
+}
