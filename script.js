@@ -8,7 +8,8 @@ function MouseCircleFollow(){
     window.addEventListener("mousemove", function(detils){
         //console.log(detils);
         //console.log(detils.clientX, detils.clientY);
-        document.querySelector("#circle").style.transform = `translate(${detils.clientX}px, ${detils.clientY}px)`
+        document.querySelector("#mousecircle").style.transform = `translate(${detils.clientX}px, ${detils.clientY}px)`;
+         
         //
     })
 } 
