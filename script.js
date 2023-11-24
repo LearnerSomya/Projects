@@ -20,7 +20,7 @@ function firstPageAnimation(){
         delay: -1,
         stagger: .2
     })
-    .from("herofooter",{
+    .from("#herofooter",{
         y: -10,
         opacity: 0,
         duration: 1.5,
