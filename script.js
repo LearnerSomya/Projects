@@ -29,6 +29,12 @@ function firstPageAnimation(){
     })
 }
 firstPageAnimation();
+function MouseCircleEliptical(){
+    var xscale = 1;
+    window.addEventListener("mousemove", function(detils){
+        
+    });
+}
 // Mouse Circle 
 function MouseCircleFollow(){
     //here mousemove is inbuilt control which refelects movement of mouse
