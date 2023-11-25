@@ -29,21 +29,45 @@ function firstPageAnimation(){
     })
 }
 firstPageAnimation();
+var timeout;
 function MouseCircleEliptical(){
     var xscale = 1;
-    window.addEventListener("mousemove", function(detils){
+    var yscale = 1;
+
+    var xprev = 0;
+    var yprev = 0;
+
+    window.addEventListener("mousemove", function(details){
+        // setTimeout will work when mouse moves and clearTimeout will keep on clearning previous timeouts, and when mouse will stop moving 
+        // then addEventListner will also not work means clearTimeOut will also not work which will mean mousemovecircle will get back to its original round shape
+        clearTimeout(timeout);
+        //var xdiff = details.clientX - xprev;
+        //var ydiff = details.clientY - yprev;
         
+        // clamp function is for constraining values in between the range
+        // gsap.utils.clamp(rangeMinValue, rangeMinValue, userInputValue)
+        xscale = gsap.utils.clamp(0.65,1.2,details.clientX - xprev);
+        yscale = gsap.utils.clamp(0.65,1.2,details.clientY - yprev);
+        
+        xprev = details.clientX;
+        yprev = details.clientY;
+
+        MouseCircleFollow(xscale,yscale);
+        timeout = setTimeout(function(){
+            ocument.querySelector("#mousecircle").style.transform = `translate(${details.clientX}px, ${details.clientY}px) scale(1, 1)`;
+        }, 100);
     });
 }
+MouseCircleEliptical();
 // Mouse Circle 
-function MouseCircleFollow(){
+function MouseCircleFollow(xscale,yscale){
     //here mousemove is inbuilt control which refelects movement of mouse
-    window.addEventListener("mousemove", function(detils){
+    window.addEventListener("mousemove", function(details){
         //console.log(detils);
         //console.log(detils.clientX, detils.clientY);
-        document.querySelector("#mousecircle").style.transform = `translate(${detils.clientX}px, ${detils.clientY}px)`;
+        document.querySelector("#mousecircle").style.transform = `translate(${details.clientX}px, ${details.clientY}px) scale(${xscale}, ${yscale})`;
          
-        //
+        //f
     })
 } 
 MouseCircleFollow(); 
