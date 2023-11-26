@@ -30,6 +30,7 @@ function firstPageAnimation(){
 }
 firstPageAnimation();
 var timeout;
+//when mouse moves, shadow circle following turns eliptical and when mouse stope returns back to original form
 function MouseCircleEliptical(){
     var xscale = 1;
     var yscale = 1;
@@ -39,7 +40,7 @@ function MouseCircleEliptical(){
 
     window.addEventListener("mousemove", function(details){
         // setTimeout will work when mouse moves and clearTimeout will keep on clearning previous timeouts, and when mouse will stop moving 
-        // then addEventListner will also not work means clearTimeOut will also not work which will mean mousemovecircle will get back to its original round shape
+        // then addEventListner will also not work means clearTimeOut will also not work which will mean mousemovecircle will get back to its original round shape 
         clearTimeout(timeout);
         //var xdiff = details.clientX - xprev;
         //var ydiff = details.clientY - yprev;
