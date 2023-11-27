@@ -72,3 +72,5 @@ function MouseCircleFollow(xscale,yscale){
     })
 } 
 MouseCircleFollow(); 
+
+document.querySelectorAll(".elem").forEach(function(elem){});
