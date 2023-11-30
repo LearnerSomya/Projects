@@ -3,32 +3,32 @@ const scroll = new LocomotiveScroll({
     smooth: true
 });
 //Navigation bar Animation
-// function firstPageAnimation(){
-//     var tl = gsap.timeline(); 
+function firstPageAnimation(){
+    var tl = gsap.timeline(); 
 
-//     tl.from("#nav",{
-//         y: '-10',
-//         opacity:0,
-//         duration: 1.5,
-//         ease: Expo.easeInOut,
-//     })
+    tl.from("#nav",{
+        y: '-10',
+        opacity:0,
+        duration: 1.5,
+        ease: Expo.easeInOut,
+    })
 
-//     .to(".boundingelem",{
-//         y: 0,
-//         ease: Expo.easeInOut,
-//         duration: 2,
-//         delay: -1,
-//         stagger: .2
-//     })
-//     .from("#herofooter",{
-//         y: -10,
-//         opacity: 0,
-//         duration: 1.5,
-//         delay: -1,
-//         ease: Expo.easeInOut
-//     })
-// }
-// firstPageAnimation();
+    .to(".boundingelem",{
+        y: 0,
+        ease: Expo.easeInOut,
+        duration: 2,
+        delay: -1,
+        stagger: .2
+    })
+    .from("#herofooter",{
+        y: -10,
+        opacity: 0,
+        duration: 1.5,
+        delay: -1,
+        ease: Expo.easeInOut
+    })
+}
+firstPageAnimation();
 var timeout;
 //when mouse moves, shadow circle following turns eliptical and when mouse stope returns back to original form
 function MouseCircleEliptical(){
@@ -75,6 +75,21 @@ MouseCircleFollow();
 
 document.querySelectorAll(".elem").forEach(function(elem){
     elem.addEventListener("mousemove",function(details){
-        console.log("Hello ji");
+        gsap.to(elem.querySelector("img"),{
+            opacity:1,
+            ease: Power1,
+        })
     })
 });
+// document.querySelectorAll(".elem").forEach(function (elem) {
+//     var rotate = 0;
+//     var diffrot = 0;
+
+//     elem.addEventListener("mousemove", function (details) {
+//         gsap.to(elem.querySelector("img"), {
+//             opacity: 1,
+//             ease: Power1, // Specify the correct ease function
+//             duration: 0.5,
+//         });
+//     });
+// });
