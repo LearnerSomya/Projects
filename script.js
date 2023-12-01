@@ -73,23 +73,25 @@ function MouseCircleFollow(xscale,yscale){
 } 
 MouseCircleFollow(); 
 
-document.querySelectorAll(".elem").forEach(function(elem){
-    elem.addEventListener("mousemove",function(details){
-        gsap.to(elem.querySelector("img"),{
-            opacity:1,
-            ease: Power1,
-        })
-    })
-});
-// document.querySelectorAll(".elem").forEach(function (elem) {
-//     var rotate = 0;
-//     var diffrot = 0;
-
-//     elem.addEventListener("mousemove", function (details) {
-//         gsap.to(elem.querySelector("img"), {
-//             opacity: 1,
-//             ease: Power1, // Specify the correct ease function
-//             duration: 0.5,
-//         });
-//     });
+// document.querySelectorAll(".elem").forEach(function(elem){
+//     elem.addEventListener("mousemove",function(details){
+//         // gsap.to(elem.querySelector("img"),{
+//         //     opacity: 1,
+//         //     print: Hello,
+//         // })
+//         console.log(details);
+//     })
 // });
+document.querySelectorAll(".elem").forEach(function (elem) {
+    var rotate = 0;
+    var diffrot = 0;
+  
+    elem.addEventListener("mouseleave", function (details) {
+      gsap.to(elem.querySelector("img"), {
+        opacity: 0,
+        ease: Power3,
+        duration: 0.5,
+        print: details,
+      });
+    });
+});
