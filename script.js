@@ -80,6 +80,7 @@ document.querySelectorAll(".elem").forEach(function(elem){
             print: details,
             opacity: 1,
             ease: Power1,
+            top: details.clientX,
         })
     })
 }); 
