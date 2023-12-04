@@ -75,12 +75,10 @@ MouseCircleFollow();
 
 document.querySelectorAll(".elem").forEach(function(elem){
     elem.addEventListener("mousemove",function(details){
-        
+        console.log(details.clientY - elem.getBoundingClientRect().top);
         gsap.to(elem.querySelector("img"),{
-            print: details,
             opacity: 1,
             ease: Power1,
-            top: details.clientX,
         })
     })
 }); 
