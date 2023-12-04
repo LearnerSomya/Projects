@@ -75,10 +75,25 @@ MouseCircleFollow();
 
 document.querySelectorAll(".elem").forEach(function(elem){
     elem.addEventListener("mousemove",function(details){
-        console.log(details.clientY - elem.getBoundingClientRect().top);
+        //var imageFileName = elem.getAttribute("data-image");
+        //elem.querySelector("img").src = "./" + imageFileName;
+
+        var differenceOfPonits = details.clientY -  elem.getBoundingClientRect().top;
+        //console.log(details.clientY - elem.getBoundingClientRect().top);
         gsap.to(elem.querySelector("img"),{
             opacity: 1,
             ease: Power1,
+            top: differenceOfPonits,
+            left: details.clientX,
+        })
+    });
+
+    elem.addEventListener("mouseLeave", function(){
+        gsap.to(elem.querySelector("img"),{
+           opacity: 1,
+           ease: Power1,
+           display: none, 
         })
     })
 }); 
+
