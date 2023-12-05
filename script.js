@@ -74,11 +74,15 @@ function MouseCircleFollow(xscale,yscale){
 MouseCircleFollow(); 
 
 document.querySelectorAll(".elem").forEach(function(elem){
+    var rotate = 0;
+    var diiferenceForRotation = 0;
     elem.addEventListener("mousemove",function(details){
         //var imageFileName = elem.getAttribute("data-image");
         //elem.querySelector("img").src = "./" + imageFileName;
 
         var differenceOfPonits = details.clientY -  elem.getBoundingClientRect().top;
+        diiferenceForRotation = details.clientX - rotate;
+        rotate = dets.clientX;
         //console.log(details.clientY - elem.getBoundingClientRect().top);
         gsap.to(elem.querySelector("img"),{
             opacity: 1,
