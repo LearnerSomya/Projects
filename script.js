@@ -82,7 +82,9 @@ document.querySelectorAll(".elem").forEach(function(elem){
 
         var differenceOfPonits = details.clientY -  elem.getBoundingClientRect().top;
         diiferenceForRotation = details.clientX - rotate;
-        rotate = dets.clientX;
+        rotate = details.clientX;
+        console.log("rotate"+ rotate);
+        console.log("difference for rotation" + diiferenceForRotation);
         //console.log(details.clientY - elem.getBoundingClientRect().top);
         gsap.to(elem.querySelector("img"),{
             opacity: 1,
@@ -92,12 +94,12 @@ document.querySelectorAll(".elem").forEach(function(elem){
         })
     });
 
-    elem.addEventListener("mouseLeave", function(){
-        gsap.to(elem.querySelector("img"),{
-           opacity: 1,
-           ease: Power1,
-           display: none, 
-        })
-    })
+    // elem.addEventListener("mouseLeave", function(){
+    //     gsap.to(elem.querySelector("img"),{
+    //        opacity: 1,
+    //        ease: Power1,
+    //        display: none, 
+    //     })
+    // })
 }); 
 
