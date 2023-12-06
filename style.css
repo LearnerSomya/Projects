@@ -9,6 +9,7 @@ html,body{
     height: 100%;
 }
 #mousecircle{
+    
     transition:all cubic-bezier(0.19, 1, 0.22, 1) 1s ;
     width: 10px;
     height: 10px;
@@ -140,6 +141,7 @@ html,body{
     text-transform: uppercase;
     font-size: 7.6vw;
     opacity: .7;
+    
 }
 .elemlast{
     border-bottom: 1px solid #888;

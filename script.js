@@ -77,29 +77,29 @@ document.querySelectorAll(".elem").forEach(function(elem){
     var rotate = 0;
     var diiferenceForRotation = 0;
     elem.addEventListener("mousemove",function(details){
-        //var imageFileName = elem.getAttribute("data-image");
-        //elem.querySelector("img").src = "./" + imageFileName;
-
         var differenceOfPonits = details.clientY -  elem.getBoundingClientRect().top;
         diiferenceForRotation = details.clientX - rotate;
         rotate = details.clientX;
-        console.log("rotate"+ rotate);
-        console.log("difference for rotation" + diiferenceForRotation);
-        //console.log(details.clientY - elem.getBoundingClientRect().top);
+
         gsap.to(elem.querySelector("img"),{
             opacity: 1,
             ease: Power1,
             top: differenceOfPonits,
             left: details.clientX,
+            rotate: gsap.utils.clamp(-20, 20, diiferenceForRotation * 0.8),
         })
+
+        gsap.to(elem.textElement("h1"),{
+            top: differenceOfPonits,
+            ease: Power1,
+        })
+
     });
 
-    // elem.addEventListener("mouseLeave", function(){
-    //     gsap.to(elem.querySelector("img"),{
-    //        opacity: 1,
-    //        ease: Power1,
-    //        display: none, 
-    //     })
-    // })
+    elem.addEventListener("mouseleave", function(details){
+        gsap.to(elem.querySelector("img"),{
+            opacity: 0,
+            ease: Power1,
+        })
+    })
 }); 
-
