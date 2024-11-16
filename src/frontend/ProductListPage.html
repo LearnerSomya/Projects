@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car List</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .car-item { border: 1px solid #ccc; margin: 10px; padding: 10px; }
+    .search-bar { margin: 20px; }
+  </style>
+</head>
+<body>
+<h1>My Cars</h1>
+<input class="search-bar" type="text" id="search" placeholder="Search cars">
+<div id="car-list"></div>
+
+<script>
+  const fetchCars = (query = '') => {
+    fetch(`http://localhost:8080/api/cars?search=${query}`)
+            .then(response => response.json())
+            .then(data => {
+              const carList = document.getElementById('car-list');
+              carList.innerHTML = '';
+              data.forEach(car => {
+                const carDiv = document.createElement('div');
+                carDiv.className = 'car-item';
+                carDiv.innerHTML = `<h3>${car.title}</h3><p>${car.description}</p><button onclick="viewCar('${car.id}')">View</button>`;
+                carList.appendChild(carDiv);
+              });
+            })
+            .catch(error => console.error('Error:', error));
+  };
+
+  const viewCar = (id) => window.location.href = `product-detail.html?id=${id}`;
+
+  document.getElementById('search').addEventListener('input', (e) => fetchCars(e.target.value));
+  fetchCars();
+</script>
+</body>
+</html>
